@@ -174,7 +174,14 @@ def calc_result(data: tuple):
                 numerator += divider
                 int_part -= 1
         elif data[2] == '*':
-            print('Реализовать самостоятельно!') # todo умножение
+            num1 = data[0][0] * data[0][1][1] + data[0][1][0]
+            num2 = data[1][0] * data[1][1][1] + data[1][1][0]
+            div1 = data[0][1][1]
+            div2 = data[1][1][1]
+            numerator = num1*num2
+            divider = div1*div2
+            int_part = numerator//divider
+            numerator = numerator % divider
         else:
             print('Некорректный ввод')
             return None
@@ -195,9 +202,9 @@ def result_to_str(i: tuple):
     if i[1]:  # если есть дробная часть
         if i[1] < 10 or not i[0] % 10:
             # подходящее слово будет либо в целых, либо в числителях
-            num_str = get_value(int_strings, i[1])
+            num_str = get_value(numerator_strings, i[1])
             if not num_str:
-                num_str = get_value(numerator_strings, i[1])
+                num_str = get_value(int_strings, i[1])
             res += ' и '+num_str
         else:
             res += ' и '+get_value(int_strings, i[1] - i[1] % 10) + ' ' + get_value(int_strings, i[1] % 10) + ' ' + get_value(numerator_strings, i[1] % 10)
@@ -212,7 +219,4 @@ def result_to_str(i: tuple):
 
 print(result_to_str(calc_result(parse_string('два и три десятых плюс три десятых'))))
 print(result_to_str(calc_result(parse_string('два и одна двадцатая плюс восемь двадцатых'))))
-
-# print(calc_result(parse_string('двадцать плюс тридцать')))
-
-# print(str_to_num(("одна", "десятая")))
+print(result_to_str(calc_result(parse_string('одна вторая умножить одна третья'))))

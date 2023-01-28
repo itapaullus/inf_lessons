@@ -1,4 +1,6 @@
-from lesson2 import lesson2 as l2
+from marina import lesson1 as l1
 
 if __name__ == '__main__':
-    l2.task2()
+    l1.main()
+
+

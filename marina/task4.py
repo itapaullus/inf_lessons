@@ -21,13 +21,13 @@
 Все тесты в этой задаче оцениваются независимо.
 
 
-> > < < > <
+>><<><
 > < > < < >
 
 
 '''
-
-line = list(input())
+# ЗАДАЧА 4
+n, line = int(input()), list(input())
 chng_flg = False
 turn_count = 0
 while True:
@@ -39,7 +39,8 @@ while True:
             i += 2
             chng_flg = True
             turn_count += 1
-        i += 1
+        else:
+            i += 1
         if i + 1 >= len(line):
             break
     if not chng_flg:
